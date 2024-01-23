@@ -1,13 +1,3 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
-
 /* Scroll-bar-start */
 
 /* width */
@@ -38,6 +28,7 @@ $color-primary-dark: #28b485;
 
 $color-gray-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 *,
 *::before,
@@ -47,7 +38,7 @@ $color-white: #fff;
     box-sizing: inherit;
 }
 
-html{
+html {
     /* font-size: 10px; */
     font-size: 62.5%;
 }
@@ -69,24 +60,24 @@ body {
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
-}
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-}
+    &__logo {
+        height: 3.5rem;
+    }
 
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 .heading-primary {
@@ -94,34 +85,38 @@ body {
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 6.0rem;
+
+    &--main {
+        display: block;
+        font-size: 6.0rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2.0rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+    }
 }
 
-.heading-primary--main {
-    display: block;
-    font-size: 6.0rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out ;
-}
 
-.heading-primary--sub {
-    display: block;
-    font-size: 2.0rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-}
 
 @keyframes moveInLeft {
     0% {
         opacity: 0;
         transform: translateX(-10.0rem);
     }
-    80%{
+
+    80% {
         transform: translateX(1.0rem);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -133,9 +128,11 @@ body {
         opacity: 0;
         transform: translateX(10.0rem);
     }
-    80%{
+
+    80% {
         transform: translateX(-1.0rem);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -147,62 +144,66 @@ body {
         opacity: 0;
         transform: translateY(3.0rem);
     }
+
     100% {
         opacity: 1;
         transform: translate(0);
     }
 }
 
-.btn:link,
-.btn:visited{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4.0rem;
-    display: inline-block;
-    border-radius: 10.0rem;
-    transition: all .2s;
-    position: relative;
-    font-size: 1.6rem;
-}
+.btn {
 
-.btn:hover{
-    transform: translateY(-.3rem);
-    box-shadow: 0 1.0rem 2.0rem rgba(0,0,0,0.2);
-}
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4.0rem;
+        display: inline-block;
+        border-radius: 10.0rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
 
-.btn:active{
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 2.0rem rgba(0,0,0,0.2);
-}
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1.0rem 2.0rem rgba($color-black, 0.2);
 
-.btn--white{
-    background-color: $color-white;
-    color: $color-gray-dark;
-}
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
 
-.btn::after{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10.0rem;
-    z-index: -1;
-    transition: all .4s;
-}
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 2.0rem rgba($color-black, 0.2);
+    }
 
-.btn--white::after{
-    background-color: white;
-}
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark;
 
-.btn:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
+        &::after {
+            background-color: $color-white;
+        }
+    }
 
-.btn--animated{
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards;
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10.0rem;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
 }
