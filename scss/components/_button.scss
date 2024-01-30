@@ -1,4 +1,6 @@
 .btn {
+
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -9,6 +11,10 @@
         transition: all .2s;
         position: relative;
         font-size: $default-font-size;
+
+        // Change for buttton
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -21,9 +27,12 @@
         }
     }
 
-    &:active {
+    &:active{
         transform: translateY(-.1rem);
         box-shadow: 0 .5rem 2.0rem rgba($color-black, 0.2);
+    }
+    &:focus{
+        outline: none;
     }
 
     &--white {
@@ -63,9 +72,10 @@
     }
 }
 
-.btn-text{
+.btn-text {
+
     &:link,
-    &:visited{
+    &:visited {
         font-size: $default-font-size;
         color: $color-primary;
         display: inline-block;
@@ -73,16 +83,16 @@
         border-bottom: 1px solid $color-primary;
         padding: 3px;
         transition: all .2s;
-    }   
+    }
 
-    &:hover{
+    &:hover {
         background-color: $color-primary;
         color: $color-white;
         box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
         transform: translateY(-2px);
     }
 
-    &:active{
+    &:active {
         box-shadow: 0 .5rem 1rem rgba($color-black, 0.15);
         transform: translateY(0px);
     }
