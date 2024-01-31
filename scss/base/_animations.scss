@@ -41,3 +41,12 @@
         transform: translate(0);
     }
 }
+
+@keyframes textHighlight {
+    0% {
+        background-position-x: 0%;
+    }
+    100% {
+        background-position-x: 100%;
+    }
+}
