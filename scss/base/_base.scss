@@ -54,3 +54,7 @@ body{
 }
 /* Scroll-bar-end */
 
+::selection{
+    background-color: $color-primary;
+    color:  $color-white;
+}
